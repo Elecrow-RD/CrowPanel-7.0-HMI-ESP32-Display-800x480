@@ -1,0 +1,6 @@
+source "C:/Espressif/frameworks/esp-idf-v4.4.1/components/app_update/Kconfig.projbuild"
+source "C:/Espressif/frameworks/esp-idf-v4.4.1/components/bootloader/Kconfig.projbuild"
+source "C:/Espressif/frameworks/esp-idf-v4.4.1/components/esp_rom/Kconfig.projbuild"
+source "C:/Espressif/frameworks/esp-idf-v4.4.1/components/esptool_py/Kconfig.projbuild"
+source "C:/Espressif/frameworks/esp-idf-v4.4.1/components/partition_table/Kconfig.projbuild"
+source "D:/vs/esp-idf7.0/CrowPanel_ESP32_7.0/components/arduino-esp32-master/Kconfig.projbuild"

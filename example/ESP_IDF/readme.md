@@ -1,0 +1,1 @@
+### Here is a case study of the esp_idf platform, for actual use please refer to the wiki link for instructions.

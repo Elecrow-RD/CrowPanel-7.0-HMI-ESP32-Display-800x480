@@ -1,14 +1,14 @@
-1, Product picture
+### 1, Product picture
 
 ![7.0_hmi_esp32_display](F:\wiki\crowpanel esp32 hmi display\CrowPanel 7.0-HMI ESP32 Display 800x480\7.0_hmi_esp32_display.png)
 
-2, Product version number
+### 2, Product version number
 
 |      | Hardware | Software | Remark |
 | ---- | -------- | -------- | ------ |
-| 1    | V2.0     | V1.0     | latest |
+| 1    | V3.0     | V3.0     | latest |
 
-3, product information
+### 3, product information
 
 - Model: 7.0 inch -CrowPanel ESP32 display
 - Main Processor: ESP32-S3-WROOM-1-N4R8
@@ -26,13 +26,13 @@
 - Working Temperature: -20℃～70℃
 - Storage Temperature: -30℃～80℃
 
-4, Use the driver module
+### 4, Use the driver module
 
 | Name | dependency library |
 | ---- | ------------------ |
 | LVGL | lvgl/lvgl@8.3.3    |
 
-5,Quick Start
+### 5,Quick Start
 
 ##### Arduino IDE starts
 
@@ -87,7 +87,7 @@ C:\Users\Documents\Arduino\libraries\
 
 ![thonny2](./thonny2.jpg)
 
-6,Folder structure.
+### 6,Folder structure.
 
 |--3D file： Contains 3D model files (.stp) for the hardware. These files can be used for visualization, enclosure design, or integration into CAD software.
 
@@ -101,7 +101,7 @@ C:\Users\Documents\Arduino\libraries\
 
 |--factory_sourcecode: Contains the source code for the factory firmware, allowing users to modify and rebuild the firmware as needed.
 
-7,Pin definition
+### 7,Pin definition
 
 class LGFX : public lgfx::LGFX_Device
 {

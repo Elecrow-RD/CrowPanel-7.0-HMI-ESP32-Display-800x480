@@ -1,6 +1,6 @@
 ### 1, Product picture
 
-![7.0_hmi_esp32_display](F:\wiki\crowpanel esp32 hmi display\CrowPanel 7.0-HMI ESP32 Display 800x480\7.0_hmi_esp32_display.png)
+![7.0_hmi_esp32_display](./7.0_hmi_esp32_display.png)
 
 ### 2, Product version number
 

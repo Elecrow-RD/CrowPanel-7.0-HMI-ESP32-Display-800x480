@@ -1,0 +1,10 @@
+Command: cmake -G Ninja -DPYTHON_DEPS_CHECKED=1 -DPYTHON=C:\Espressif\tools\python\v5.5.4\venv\Scripts\python.exe -DESP_PLATFORM=1 -DCCACHE_ENABLE=1 J:\Basic_HMI_Code\NEW_Basic_Code\7.0\ESP_IDF\LVGL_Control_LED_70
+ESP Insights Project commit: HEAD-HASH-NOTFOUND
+ESP RainMaker Project commit: HEAD-HASH-NOTFOUND
+CMake Warning at J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/tools/cmake/component.cmake:301 (message):
+  No source files found for SRC_DIRS entry 'src/font'.
+Call Stack (most recent call first):
+  J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/tools/cmake/component.cmake:458 (__component_add_sources)
+  components/Arduino_GFX-master/CMakeLists.txt:9 (idf_component_register)
+
+

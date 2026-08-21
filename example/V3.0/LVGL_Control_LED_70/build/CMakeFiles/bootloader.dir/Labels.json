@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

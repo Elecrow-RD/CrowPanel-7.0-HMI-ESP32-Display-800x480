@@ -1,5 +1,0 @@
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/bootloader/Kconfig.projbuild"
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/esp_app_format/Kconfig.projbuild"
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/esp_rom/Kconfig.projbuild"
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/esptool_py/Kconfig.projbuild"
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/partition_table/Kconfig.projbuild"

@@ -1,8 +1,0 @@
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/bootloader/Kconfig.projbuild"
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/esp_app_format/Kconfig.projbuild"
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/esp_rom/Kconfig.projbuild"
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/esptool_py/Kconfig.projbuild"
-source "J:/Advance_Code_New/NEW_ESP32/esp-idf/.espressif/v5.5.4/esp-idf/components/partition_table/Kconfig.projbuild"
-source "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/managed_components/espressif__arduino-esp32/Kconfig.projbuild"
-source "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/managed_components/espressif__esp-sr/Kconfig.projbuild"
-source "J:/Basic_HMI_Code/NEW_Basic_Code/7.0/ESP_IDF/LVGL_Control_LED_70/managed_components/espressif__esp_rainmaker/Kconfig.projbuild"

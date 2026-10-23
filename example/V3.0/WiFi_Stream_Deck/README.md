@@ -92,6 +92,26 @@ If the PlatformIO toolbar is missing, open the Command Palette and run **Platfor
 
 The first build downloads the required tools and libraries and may take a few minutes. You can also run `./flash.ps1`; it builds the firmware and prompts for the COM port. Use the UART port, not the native USB port: GPIO19/20 are used by the touch controller.
 
+`python -m platformio` and `pio` are the same tool - use whichever works on your `PATH`. Common alternatives:
+
+```powershell
+pio run -e crowpanel_7 -t upload              # auto-detect the only connected board
+pio run -e crowpanel_7 -t clean               # wipe build/ after weird link errors
+pio device monitor -b 115200                  # serial log after flashing
+```
+
+A full copy-paste sequence (PowerShell, adapt `COM4`):
+
+```powershell
+py -m pip install platformio                                   # once
+copy include\secrets.h.example include\secrets.h                # then edit it
+python -m platformio run -e crowpanel_7                        # build
+python -m platformio run -e crowpanel_7 -t upload --upload-port COM4
+python -m platformio device monitor -b 115200                  # optional: watch boot log
+```
+
+macOS / Linux equivalents: `pipx install platformio`, then `pio run -t upload --upload-port /dev/cu.usbserial-XX` and `pio device monitor -b 115200`.
+
 ## Quick start (Windows)
 
 ```powershell

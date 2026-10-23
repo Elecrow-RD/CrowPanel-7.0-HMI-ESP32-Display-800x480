@@ -1,0 +1,18 @@
+# Copy to config.yaml. Re-read automatically when saved (no restart).
+
+diary:
+  # Notes tab backing store. When disabled, /diary/* returns 404 and the panel
+  # stops polling after the first miss.
+  enabled: false
+  # Directory of YYYY-MM-DD.md files. Tilde expands to $HOME.
+  path: "~/obsidian/vault/diary"
+
+auth:
+  # Optional shared secret. If set, every request must carry
+  # X-Deck-Token: <token>. Put the same value in include/secrets.h
+  # (SERVER_TOKEN) and reflash the panel.
+  token: ""
+
+exec:
+  # Seconds before a hung action is killed, including child processes.
+  timeout: 10

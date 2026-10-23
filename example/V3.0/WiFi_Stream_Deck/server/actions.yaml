@@ -1,0 +1,64 @@
+# Stream Deck action map (Windows). Reloaded on every tap.
+#
+# Two forms:
+#   simple:   { run: "<cmd>" }
+#   toggle:   { toggle: true, on: "<cmd>", off: "<cmd>" }
+#
+# Commands run through cmd.exe (shell=True) with the working directory set to
+# this folder, so relative paths like win\deckctl.exe resolve.
+#
+# win\deckctl.exe is a precompiled helper (~60 ms per call) that sets volume and
+# mute through Core Audio and sends transport keys through the OS media router.
+# Do not call PowerShell here: process startup costs 0.3-1.3 s per tap, which
+# overflows the panel's tap queue and makes presses feel dead.
+# Rebuild it after editing win\deckctl.cs with: powershell -File win\build-deckctl.ps1
+
+mute:
+  run: 'win\deckctl.exe mute'
+
+mic_mute:
+  run: 'win\deckctl.exe mic_mute'
+
+esc:
+  run: 'win\deckctl.exe esc'
+
+copy:
+  run: 'win\deckctl.exe copy'
+
+paste:
+  run: 'win\deckctl.exe paste'
+
+snip:
+  run: 'win\deckctl.exe snip'
+
+start:
+  run: 'win\deckctl.exe start'
+
+alt_tab:
+  run: 'win\deckctl.exe alt_tab'
+
+ctrl_tab:
+  run: 'win\deckctl.exe ctrl_tab'
+
+play_pause:
+  run: 'win\deckctl.exe play_pause'
+
+next_track:
+  run: 'win\deckctl.exe next'
+
+vol_down:
+  run: 'win\deckctl.exe volume_down'
+
+vol_up:
+  run: 'win\deckctl.exe volume_up'
+
+show_desktop:
+  run: 'win\deckctl.exe desktop'
+
+open_terminal:
+  run: 'win\deckctl.exe terminal'
+
+lock_screen:
+  # `start` detaches it so the server answers instantly instead of blocking
+  # until the session is unlocked (which made the display show HTTP -11).
+  run: 'start "" rundll32.exe user32.dll,LockWorkStation'

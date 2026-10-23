@@ -1,0 +1,15 @@
+.pio/
+.vscode/
+tasks/
+.DS_Store
+
+# Local credentials (WIFI_PASS / SERVER_TOKEN)
+include/secrets.h
+
+# Server runtime
+server/.venv/
+server/config.yaml
+server/*.log
+__pycache__/
+*.py[cod]
+.pytest_cache/

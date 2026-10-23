@@ -18,6 +18,11 @@ CrowPanel (firmware)                    Your PC (server)
 The firmware owns **keys and labels**; the server owns **what runs**. Change
 behaviour in `server/actions.yaml` without reflashing.
 
+![WiFi Stream Deck running on a CrowPanel 7.0-inch](docs/wifi-stream-deck.jpg)
+
+*CrowPanel 7.0-inch V3.0 running the deck: 16 keys, the clock and the panel's own
+IP in the header, and `OK: start` reporting the last action the PC ran.*
+
 ## Hardware support
 
 | Board | Status |
@@ -235,6 +240,7 @@ server/win/deckctl.exe    compiled helper (~60 ms per call)
 server/run.ps1|run.sh     venv + uvicorn on :8787
 server/start-server.cmd   double-click launcher for Windows
 server/tests/             pytest suite
+docs/wifi-stream-deck.jpg photo used in this README
 ```
 
 ## Rendering

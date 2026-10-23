@@ -41,14 +41,34 @@ board variant `boards/esp32-s3-devkitc1-n4r8.json` is required - the stock
 
 ## Open in VS Code (Windows)
 
-1. Install **Visual Studio Code**.
-2. In VS Code, open **Extensions** and install **PlatformIO IDE**.
-3. Choose **File → Open Folder** and select this `WiFi_Stream_Deck` folder — the one containing `platformio.ini`.
-4. Wait for PlatformIO to finish installing the ESP32 tools and libraries. This can take a few minutes the first time.
-5. Copy `include/secrets.h.example` to `include/secrets.h` and enter your WiFi name, password, and the PC's local network IP address. Do not use `localhost` for `SERVER_HOST`.
-6. Connect the display using its **CH340 UART** USB port, not the native USB port. In VS Code, open **PlatformIO → Devices** to find the COM port, then select it in the PlatformIO toolbar.
-7. Click the checkmark to build. Click the right-arrow to upload. Use the plug icon to open Serial Monitor at **115200** baud.
-8. Start the PC server in a separate VS Code terminal (**Terminal → New Terminal**) with `./server/run.ps1` and leave it running.
+No embedded experience needed - do these in order.
+
+### Before you start (once)
+
+1. **Visual Studio Code** - https://code.visualstudio.com/
+2. **PlatformIO IDE** - in VS Code open the Extensions view (`Ctrl+Shift+X`), search for `PlatformIO IDE`, click **Install**, and reload the window when it asks.
+3. **Python 3** (3.9 or newer) - https://www.python.org/downloads/ - tick **Add python.exe to PATH** in the installer. This runs the PC half of the project.
+4. **CH340 USB driver** - only if the panel's COM port never shows up (Windows 10/11 usually installs it on its own).
+
+### Steps
+
+1. **File → Open Folder** and select this `WiFi_Stream_Deck` folder - the one with `platformio.ini` directly inside it, not a parent folder.
+2. If VS Code asks **"Do you trust the authors of this folder?"**, choose **Yes, I trust the authors**. PlatformIO cannot build otherwise.
+3. Wait for PlatformIO to finish setting up. The first open downloads the ESP32 toolchain and libraries (several hundred MB, a few minutes) - it only happens once. The status bar shows progress at the bottom.
+4. Create your credentials: in the Explorer pane right-click `include/secrets.h.example` → **Copy**, paste it into `include/`, rename the copy to `secrets.h`, then fill in `WIFI_SSID`, `WIFI_PASS` (2.4 GHz network only) and `SERVER_HOST` (your PC's LAN IP, e.g. `192.168.1.42` - never `localhost`).
+   - Prefer the terminal? Run `copy include\secrets.h.example include\secrets.h` instead.
+   - `server/config.yaml` is **optional** - skip it unless you want the Notes tab or a shared token.
+5. Start the PC server **first**: **Terminal → New Terminal**, then
+   ```powershell
+   .\server\run.ps1
+   ```
+   It creates a virtual environment, installs the Python dependencies, prints your PC's LAN addresses (one of these must be `SERVER_HOST`) and then listens on port 8787. Leave this terminal running - taps show `server down` without it. If PowerShell refuses to run the script, double-click `server\start-server.cmd`.
+6. If Windows Firewall pops up, allow Python on **Private** networks.
+7. Plug the panel into its **CH340 UART USB port** - not the native USB port (GPIO19/20 are used by the touch controller there).
+8. Pick the serial port: click the port selector in the bottom status bar and choose the panel's `COMx`. To list ports, open the Command Palette (`Ctrl+Shift+P`) and run **PlatformIO: Devices**. No port at all? See Troubleshooting.
+9. Click the **checkmark** (Build), then the **right arrow** (Upload). Both run in the terminal panel; wait for `SUCCESS`.
+10. Click the **plug icon** (Serial Monitor) and set the baud rate to **115200** to watch the boot log. You should see the panel's WiFi IP and then `online`.
+11. Tap a tile: the header shows `OK: <key>` (or `server down` if step 5 is not running). Everything after this is just editing `server/actions.yaml` - no reflashing.
 
 If the PlatformIO toolbar is missing, open the Command Palette and run **PlatformIO: Home**.
 
@@ -80,7 +100,7 @@ py -m pip install platformio
 
 # 2. credentials
 copy include\secrets.h.example include\secrets.h
-notepad include\secrets.h     # WiFi (2.4 GHz only!), SERVER_HOST, SERVER_TOKEN
+notepad include\secrets.h     # WiFi (2.4 GHz only!) and SERVER_HOST; SERVER_TOKEN is optional
 
 # 3. flash: plug the panel into the CH340 UART port, find its COM port
 .\flash.ps1
@@ -129,7 +149,9 @@ Upload speed is pinned to `460800`; the CH340 bridge chokes at 921600.
 #define SERVER_TOKEN ""             // must match auth.token; empty = no auth
 ```
 
-### `server/config.yaml` (gitignored, hot-reloaded)
+### `server/config.yaml` (gitignored, hot-reloaded, optional)
+
+Copy `server/config.yaml.example` to `server/config.yaml` only if you need to change a default. With no file the server runs with `diary.enabled: false`, no `auth.token` and `exec.timeout: 10`.
 
 ```yaml
 diary:
@@ -187,7 +209,7 @@ platformio.ini            env:crowpanel_7
 flash.ps1                 build + upload, asks for the COM port
 server/server.py          FastAPI app (tap dispatch, diary, /health, /state)
 server/actions.yaml       key -> command map (hot-reloaded)
-server/config.yaml        diary/auth/exec settings (gitignored; .example committed)
+server/config.yaml        diary/auth/exec settings (optional, gitignored; .example committed)
 server/win/deckctl.cs     C# helper behind the Windows actions
 server/win/deckctl.exe    compiled helper (~60 ms per call)
 server/run.ps1|run.sh     venv + uvicorn on :8787
